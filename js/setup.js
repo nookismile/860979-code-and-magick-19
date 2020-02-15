@@ -37,16 +37,13 @@
   }
 
   function generateWizards() {
-    var mixWizardNames = mixArray(dataWizards.NAMES);
-    var mixWizardSurnames = mixArray(dataWizards.SURNAMES);
-
     var wizards = [];
     for (var i = 0; i < dataWizards.COUNT; i++) {
       wizards.push({
-        names: mixWizardNames[i],
-        surnames: mixWizardSurnames[i],
-        coatColor: getRandomElement(dataWizards.COAT_COLOR),
-        eyesColor: getRandomElement(dataWizards.EYES_COLOR)
+        names: arrayRandElement(dataWizards.NAMES),
+        surnames: arrayRandElement(dataWizards.SURNAMES),
+        coatColor: arrayRandElement(dataWizards.COAT_COLOR),
+        eyesColor: arrayRandElement(dataWizards.EYES_COLOR)
       });
     }
     return wizards;
@@ -57,22 +54,10 @@
     setupSimilarWizards.classList.remove('hidden');
   }
 
-  function mixArray(arr) {
-    var mixedArray = arr.slice();
-    for (var i = mixedArray.length - 1; i > 0; i--) {
-      var randomIndex = Math.floor(Math.random() * (i + 1));
-      var tempValue = mixedArray[i];
-      mixedArray[i] = arr[randomIndex];
-      mixedArray[randomIndex] = tempValue;
-    }
-    return mixedArray;
+
+  function arrayRandElement(arr) {
+    var rand = Math.floor(Math.random() * arr.length);
+    return arr[rand];
   }
 
-  function getRandomElement(arr) {
-    for (var i = 0; i < arr.length; i++) {
-      var randomIndex = Math.floor(Math.random() * arr.length);
-      var randomElement = arr[randomIndex];
-    }
-    return randomElement;
-  }
 })();
