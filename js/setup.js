@@ -9,8 +9,6 @@
   var setupOpen = document.querySelector('.setup-open');
   var setupClose = setup.querySelector('.setup-close');
   var userNameInput = setup.querySelector('.setup-user-name');
-  var setupSubmit = setup.querySelector('.setup-submit');
-  var form = setup.querySelector('.setup-wizard-form');
 
   var similarListElement = setup.querySelector('.setup-similar-list');
   var similarWizardTemplate = document.querySelector('#similar-wizard-template').content;
@@ -58,17 +56,6 @@
   setupClose.addEventListener('keydown', function (evt) {
     if (evt.key === ENTER_KEY) {
       closePopup();
-    }
-  });
-
-  // Отправка формы
-  setupSubmit.addEventListener('click', function () {
-    form.submit();
-  });
-
-  setupSubmit.addEventListener('keydown', function (evt) {
-    if (evt.key === ENTER_KEY) {
-      form.submit();
     }
   });
 
